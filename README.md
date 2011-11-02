@@ -2,13 +2,13 @@ Just Build It
 
 Enough with the complicated build systems already.
 
-=Compiling JBI=
+==Compiling JBI==
 
 ```bash
 scalac -d bin jbi.scala
 ```
 
-=Compiling Using JBI=
+==Compiling Scala Using JBI==
 
 Make a Scala file called BuildIt:
 
@@ -20,3 +20,9 @@ JBI.scalac("src", "bin")
 ```bash
 jbi
 ```
+
+See the example/ directory.
+
+==Compiling Java Using JBI==
+
+Just like above. Use javac instead of scalac.
