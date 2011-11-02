@@ -1,0 +1,2 @@
+import jbi._
+JBI.scalac("src", "bin")

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+scriptDir=$PWD/$(dirname $0)
+
+if [ ! -e $PWD/BuildIt ]; then
+  cat >&2 "ERROR: BuildIt not found"
+  exit 1
+fi
+
+scala -cp $scriptDir/bin $PWD/BuildIt
