@@ -40,6 +40,21 @@ object JBI {
     }
   }
 
+  def jar(classDir: String, jarFile: String, mainClass: String = "") {
+    val jarMod = if(new File(jarFile).exists) new File(jarFile).lastModified else 0
+    val modified: Seq[File] = findFiles(new File(classDir), (f: File) => f.lastModified > jarMod)
+
+    if(modified.size > 0) {
+      if(mainClass != "") {
+        run("jar cfe %s %s %s".format(jarFile, mainClass, classDir))
+      } else {
+        run("jar cf %s %s".format(jarFile, classDir))
+      }
+    } else {
+      err.println("No need to update JAR file")
+    }
+  }
+
   def parseScalaDeps(depFile: String): (Map[String, Set[File]], Map[String, Set[File]]) = {
 
     val deps = new mutable.HashMap[String,mutable.HashSet[String]]
