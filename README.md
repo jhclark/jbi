@@ -18,7 +18,10 @@ Make a Scala file called BuildIt:
 ```scala
 import jbi._
 JBI.scalac("src", "bin")
+JBI.jar("bin", "example.jar", mainClass="A")
 ```
+
+Then run:
 
 ```bash
 jbi
